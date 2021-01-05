@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+  <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <title>Pacient</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+      <script type="text/javascript" src="Functii.js"></script>
+      <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="navigation sticky">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+<div class="container-fluid">
+<a class="navbar-brand" href="Login.html">
+            <img src="img/test1.png">
+</a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#">Rezultate</a>
+            </li>
+                <li class="nav-item">
+             <a class="nav-link" href="#">Programare</a>
+         </li>
+    </ul>      
+    <a href="/logout" class="btn btn-danger">Logout</a>
+  </div>
+</div>
+</nav>
+
+<div class="bg">
+  <img src="img/background.png " style="visibility: hidden;">
+</div>
+<div class="col-12">
+        <hr class="invis-100">
+    </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Consultatie</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <% if (locals.medrez) { 
+            medrez.forEach(function(error_msg){ %>
+            <p><%= error_msg %></p>
+          <% });
+          } %>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+
+  </div>
+</div>
+    <div class="col"></div>
+  </div>
+</div>
+
+<div class="col-12">
+        <hr class="dark-100">
+</div>
+
+<div class="container">
+<div class="row">
+  
+  <div class="col"><h2>Creaza o programare</h2>
+        <form class="filebg border border-dark" action="/pacient" method="post">
+     <div class="container ">
+    <label for="nume">Nume:</label>
+    <input type="text" class="form-control" id="numeP" placeholder="Introduceti numele" name="nume" pattern="[A-Za-z]+" required><br>
+
+    <label for="pren">Prenume:</label>
+    <input type="text" class="form-control" id="prenumeP" placeholder="Introduceti prenumele" name="pren" pattern="[A-Za-z]+" required><br>
+
+    <label for="age">Varsta:</label>
+    <input type="text" class="form-control" id="varstaP" placeholder="Introduceti varsta" name="age" pattern="[0-9]+" required><br>
+
+    <label for="dom">Adresa:</label>
+    <input type="text" class="form-control" id="adresaP" placeholder="Introduceti adresa" name="dom" required><br>
+
+    <label for="desc">Descriere:</label>
+    <input type="text" class="form-control" id="descriereP" placeholder="Introduceti descrierea" name="desc" required><br>
+
+    <label for="tel">Telefon:</label>
+    <input type="text" class="form-control" id="telefonP" placeholder="Introduceti numarul de telefon" pattern="[0-9]+" name="tel" required><br>
+
+    <button class="btn btn-primary" type="submit" id="submitButton" onclick="Programare()">Submit</button>
+    <label>&nbsp;</label>
+    </div>
+        </form></div>
+</div>
+</div>
+<div class="col-12">
+        <hr class="dark-100">
+</div>
+
+<!-- Footer -->
+<section>
+<div class="col-md-50 col-sm-50 contacts">
+    <div class="google-map">
+        <span class="line-bar"></span>
+        <iframe src="https://maps.google.com/maps?q=West%20University%20of%20Timisoara&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+</div>
+</section>
+
+<section>
+  <footer id="footer">
+    <div class="container-fluid padding">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <img src="img/test1.png">
+            <hr class="light">
+            <p>555-555-5555</p>
+            <p>alphaclinic@gmail.com</p>
+            <p>Bulevardul Vasile Parvan</p>
+            <p>Timisoara, Timis</p>
+    
+        </div>
+        <div class="col-md-4">
+            <hr class="light">
+            <h5>Program<h5>
+            <hr class="light">
+            <p>Luni-Vineri: 8am - 6pm</p>
+            <p>Sambata: 8am - 3pm</p>
+            <p>Duminica: Inchis</p>
+        </div>
+        <div class="col-md-4">
+            <hr class="light">
+            <h5>Informatii<h5>
+            <hr class="light">
+            <p>Va asteptam si in anul acesta cu servicii de calitate</p>
+        </div>
+        <div class="col-12">
+            <hr class="light-100">
+            <h5>&copy; AlphaClinic.com</h5>
+        </div>
+    </div>
+    </div>
+    </footer>
+</section>
+</body>
+</html>

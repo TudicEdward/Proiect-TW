@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <title>MedicalSience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="stylesheet" href="style.css">    
+</head>
+<body>
+<div id="navigation sticky"></div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+<div class="container-fluid">
+<a class="navbar-brand" >
+            <img src="img/test1.png">
+</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Despre noi</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#">Tarife</a>
+            </li>
+                <li class="nav-item">
+             <a class="nav-link" href="#locatie">Locatie</a>
+            </li>
+            
+            
+    </ul>
+    <a href="/login" class="btn btn-danger">Login</a>           
+  </div>
+</div>
+</nav>
+<div class="bg2">
+  <img src="img/background.png " style="visibility: hidden;">
+</div>
+<div class="col-12">
+        <hr class="invis-100">
+    </div>
+<section>
+
+    <h1 class="centertext"><b>Despre noi</b><h1>
+    <div class="col-12">
+        <hr class="invis-100">
+    </div>
+    <div class="container">
+        <div class="col align-items-center large">
+            <div class="col">
+                <img class="imgcontainer" src="img/istockphoto-949812160-612x612.jpg">
+            </div>
+            
+            <div  class="col">
+              <p>Bun venit la AlphaClinic noi suntem o clinică modernizată care are printe cei mai buni
+                doctori pe care îi puteți găsii. Ne mândrim cu site-ul nostru modernizat care permite paciențiilor să se programeze,
+                să iși vadă rezultatele și rețetele prescrise online pentru a reduce contactul uman în această pandemie.</p>
+            </div>
+        </div>
+        <div class="row align-items-center small">
+            <div class="col">
+                <img class="imgcontainer" src="img/istockphoto-949812160-612x612.jpg">
+            </div>
+            
+            <div  class="col">
+              <p>Bun venit la AlphaClinic noi suntem o clinică modernizată care are printe cei mai buni
+                doctori pe care îi puteți găsii. Ne mândrim cu site-ul nostru modernizat care permite paciențiilor să se programeze,
+                să iși vadă rezultatele și rețetele prescrise online pentru a reduce contactul uman în această pandemie.</p>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+</section>
+<div class="col-12">
+        <hr class="dark-100">
+    </div>
+<section>
+    <h2 class="centertext"><b>Tarife</b></h2>
+    <div class="container">
+    <table class="table border border-dark filebg">
+
+  <thead class="thead-dark ">
+    <tr>
+      <th scope="col" class="centertext">Tarif Consult</th>
+      <th scope="col" class="centertext">Tarif Interventie</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <% if (locals.consult || locals.interventie ) { 
+            consult.forEach(function(num1, index) { 
+                const num2 = interventie[index]; %>
+      <th class="centertext"><%= num1 %></th>
+      <th class="centertext"><%= num2 %></th>
+      <% });
+    } %>
+    </tr>
+    
+  </tbody>
+  
+</table>
+</section>
+<div class="col-12">
+        <hr class="invis-100">
+    </div>
+<!-- Connect -->
+<section id="locatie">
+<div class="col-md-50 col-sm-50 contacts">
+    <div class="google-map">
+        <span class="line-bar"></span>
+        <iframe src="https://maps.google.com/maps?q=West%20University%20of%20Timisoara&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+</div>
+</section>
+
+<!-- Footer -->
+<section>
+    <footer id="footer">
+      <div class="container-fluid padding">
+      <div class="row text-center">
+          <div class="col-md-4">
+              <img src="img/test1.png">
+              <hr class="light">
+              <p>555-555-5555</p>
+              <p>alphaclinic@gmail.com</p>
+              <p>Bulevardul Vasile Parvan</p>
+              <p>Timisoara, Timis</p>
+      
+          </div>
+          <div class="col-md-4">
+              <hr class="light">
+              <h5>Program<h5>
+              <hr class="light">
+              <p>Luni-Vineri: 8am - 6pm</p>
+              <p>Sambata: 8am - 3pm</p>
+              <p>Duminica: Inchis</p>
+          </div>
+          <div class="col-md-4">
+              <hr class="light">
+              <h5>Informatii<h5>
+              <hr class="light">
+              <p>Va asteptam si in anul acesta cu servicii de calitate</p>
+          </div>
+          <div class="col-12">
+              <hr class="light-100">
+              <h5>&copy; AlphaClinic.com</h5>
+          </div>
+      </div>
+      </div>
+      </footer>
+  </section>
+</body>
+</html>

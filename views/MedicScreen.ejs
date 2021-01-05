@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <title>Medic Specialist</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script type="text/javascript" src="Functii.js"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div id="navigation sticky">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+<div class="container-fluid">
+<a class="navbar-brand">
+            <img src="img/test1.png">
+</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#">Programari</a>
+            </li>
+                <li class="nav-item">
+             <a class="nav-link" href="#">Fisa Consult</a>
+            </li>
+            
+    </ul> 
+    <a href="/logout" class="btn btn-danger">Logout</a>     
+  </div>
+</div>
+</nav>
+
+<div class="bg">
+  <img src="img/background.png " style="visibility: hidden;">
+</div>
+
+<div class="col-12">
+        <hr class="invis-100">
+    </div>
+</div>
+<section>
+<div class="container  ">
+<h2 class="centertext">Orar Programari</h2>
+<table class="table border border-dark filebg">
+
+  <thead class="thead-dark ">
+    <tr>
+      <th>Informatii</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (locals.progs) { 
+      progs.forEach(function(error_msg){ %>
+    <tr>
+      <th>      <%= error_msg %>      </th>
+    </tr>
+    <% });
+    } %>
+  </tbody>
+  
+</table>
+<div class="col-12">
+        <hr class="dark-100">
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="row">
+  
+  <div class="col"><h2 class="centertext">Fisa Consultatie</h2>
+        <form action="/medic" method="post" class="container filebg border border-dark">
+    <label for="nume">Nume:</label>
+    <input type="text" class="form-control" id="numeFis" placeholder="Introduceti numele" name="nume" pattern="[A-Za-z]+" required> <br>
+                
+    <label for="pren">Prenume:</label>
+    <input type="text" class="form-control" id="prenumeFis" placeholder="Introduceti prenumele" name="pren" pattern="[A-Za-z]+" required><br>
+
+    <label for="age">Varsta:</label>
+    <input type="text" class="form-control" id="varstaFis" placeholder="Introduceti varsta" name="age" pattern="[0-9]+" required><br>
+
+    <fieldset id="Gender">
+    <input type="radio" id="male" name="Gender" value="M">
+    <label for="male">M</label>
+                
+    <input type="radio" id="female" name="Gender" value="F">
+    <label for="female">F</label><br>
+    </fieldset>
+
+    <label for="act">Act de identitate:</label>
+    <input type="text" class="form-control" id="act" placeholder="Introduceti nr cardului de identitate" name="act" required><br>
+
+    <label for="cnp">CNP:</label>
+    <input type="text" class="form-control" id="CNP" placeholder="Introduceti CNP-ul" name="cnp" pattern="[0-9]+" required><br>
+
+    <label for="adr">Adresa:</label>
+    <input type="text" class="form-control" id="adr" placeholder="Introduceti adresa" name="adr" required><br>
+
+    <fieldset id="mediu">
+    <input type="radio" id="urban" name="mediu" value="urban">
+    <label for="urban">Urban</label>
+                
+    <input type="radio" id="rural" name="mediu" value="rural">
+    <label for="rural">Rural</label><br>
+    </fieldset>
+
+    <label for="telefon">Telefon:</label>
+    <input type="text" class="form-control" id="telFis" placeholder="Introduceti telefon-ul" name="telefon" pattern="[0-9]+" required><br>
+
+    <label for="jud">Sector / Judet:</label>
+    <input type="text" class="form-control" id="judetFis" placeholder="Introduceti Sectorul / Judetul-ul" name="jud" required><br>
+
+    <label for="loc">Localitate:</label>
+    <input type="text" class="form-control" id="localitateFis" placeholder="Introduceti Localitatea" name="loc" required><br>
+
+    <label for="tara">Tara:</label>
+    <input type="text" class="form-control" id="taraFis" placeholder="Introduceti Tara" name="tara" required><br>
+
+    <fieldset id="ocupatie">  
+    <input type="radio" id="salariat" name="ocupatie" value="salariat">
+    <label for="salariat">Salariat</label>
+                
+    <input type="radio" id="pensionar" name="ocupatie" value="pensionar">
+    <label for="pensionar">Pensionar</label>
+
+    <input type="radio" id="neangajat" name="ocupatie" value="neangajat">
+    <label for="neangajat">Neangajat</label>
+                
+    <input type="radio" id="altaocupatie" name="ocupatie" value="altaocupatie">
+    <label for="altaocupatie">Alta ocupatie</label><br>
+    </fieldset>
+
+    <label for="munca">Loc de munca:</label>
+    <input type="text" class="form-control" id="locmuncaFis" placeholder="Introduceti locul de munca" name="munca" required><br>
+
+    <label for="med">Medic de familie:</label>
+    <input type="text" class="form-control" id="medicfamFis" placeholder="Introduceti nume medic" name="med" required><br>
+
+    <label for="tel">Telefon:</label>
+    <input type="text" class="form-control" id="telMedFis" placeholder="Introduceti telefon medic" name="tel" required><br>
+
+    <label for="detalii">Examinare:</label>
+    <textarea rows="5"  class="form-control" id="examFis" placeholder="Introduceti detalii examinare" name="detalii" required></textarea><br>
+
+    <input type="checkbox" id="bilet" name="bilet" value="1" onclick="biletTrimitere()">
+    <label for="bilet"> Bilet de trimitere</label><br>
+
+    <input type="checkbox" style="visibility: hidden" id="radiologie" name="radiologie" value="1">
+    <label id="labelradiologie" style="visibility: hidden" for="radiologie"> Radiologie</label>
+
+    <input type="checkbox" style="visibility: hidden" id="labo" name="labo" value="1">
+    <label id="labellabo" style="visibility: hidden" for="labo"> Laborator</label>
+
+    <input type="checkbox" style="visibility: hidden" id="spital" name="spital" value="1">
+    <label id="labelspital" style="visibility: hidden" for="spital"> Spital</label>
+
+    <input type="checkbox" style="visibility: hidden" id="other" name="other" value="1">
+    <label id="labelother" style="visibility: hidden" for="other"> Other</label><br>
+
+    <input type="checkbox" id="scrisoare" name="scrisoare" value="1" onclick="scrisoareMedicala()">
+    <label for="scrisoare"> Scrisoare Medicala</label><br>
+
+    <label id="labelmedicamente" style="visibility: hidden" for="medicamente">Medicamente prescrise:</label>
+    <input type="text" class="form-control" style="visibility: hidden" id="medicamente" placeholder="Introduceti medicamentele" name="medicamente"><br>
+           
+    <label id="labelmedicamente" for="medicamente">Total plata:</label>
+    <input type="text" class="form-control" id="total" placeholder="Introduceti suma" name="total"><br>
+
+    <label id="labelmedicamente" for="medicamente">Nume Medic:</label>
+    <input type="text" class="form-control" id="numemedic" placeholder="Introduceti numele" name="numemedic"><br>
+    
+    <button class="btn btn-primary" type="submit" id="submitButton" onclick="">Submit</button>
+</form></div>
+</div>
+</div>
+<div class="col-12">
+        <hr class="dark-100">
+    </div>
+</div>
+</section>
+<!-- Connect -->
+<section>
+<div class="col-md-50 col-sm-50 contacts">
+    <div class="google-map">
+        <span class="line-bar"></span>
+        <iframe src="https://maps.google.com/maps?q=West%20University%20of%20Timisoara&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+</div>
+</section>
+<!-- Footer -->
+  <section>
+    <footer id="footer">
+      <div class="container-fluid padding">
+      <div class="row text-center">
+          <div class="col-md-4">
+              <img src="img/test1.png">
+              <hr class="light">
+              <p>555-555-5555</p>
+              <p>alphaclinic@gmail.com</p>
+              <p>Bulevardul Vasile Parvan</p>
+              <p>Timisoara, Timis</p>
+      
+          </div>
+          <div class="col-md-4">
+              <hr class="light">
+              <h5>Program<h5>
+              <hr class="light">
+              <p>Luni-Vineri: 8am - 6pm</p>
+              <p>Sambata: 8am - 3pm</p>
+              <p>Duminica: Inchis</p>
+          </div>
+          <div class="col-md-4">
+              <hr class="light">
+              <h5>Informatii<h5>
+              <hr class="light">
+              <p>Va asteptam si in anul acesta cu servicii de calitate</p>
+          </div>
+          <div class="col-12">
+              <hr class="light-100">
+              <h5>&copy; AlphaClinic.com</h5>
+          </div>
+      </div>
+      </div>
+      </footer>
+  </section>
+</section>
+</body>
+</html>

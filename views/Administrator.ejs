@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <title>Administrator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="stylesheet" href="style.css">   
+    <script type="text/javascript" src="Functii.js"></script>
+</head>
+<body>
+<div id="navigation sticky">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+<div class="container-fluid">
+<a class="navbar-brand" >
+            <img src="img/test1.png">
+</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#adaugare">Adaugare cont</a>
+            </li>
+                <li class="nav-item">
+             <a class="nav-link" href="#Tarife">Tarife / Interventii</a>
+            </li>
+            </li>
+                <li class="nav-item">
+             <a class="nav-link" href="#incasari">Incasari</a>
+            </li>
+            </li>
+            
+            
+    </ul>
+    <a href="/logout" class="btn btn-danger">Logout</a>     
+  </div>
+</div>
+</nav>
+
+<div class="bg">
+  <img src="img/background.png " style="visibility: hidden;">
+</div>
+
+<div class="col-12">
+        <hr class="invis-100">
+    </div>
+</div>
+
+<!--Adaugare Cont-->
+<section>
+<div class="container" id="adaugare">
+<div class="col"><h2 class="centertext">Adaugare Cont</h2>
+<form class="container filebg border border-dark" action="/registeradmin" method="post">
+        <label for="name"><b>Nume:</b></label><br>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Introduceti numele" pattern="[A-Za-z]+"><br>
+
+        <label for="pren"><b>Prenume:</b></label><br>
+        <input type="text" class="form-control" id="pren" name="pren" placeholder="Introduceti prenumele" pattern="[A-Za-z]+"><br>
+
+        <label for="email"><b>Email:</b></label><br>
+        <input type="text" class="form-control" id="email" name="email" placeholder="Introduceti email-ul" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"><br>
+
+        <label for="pass"><b>Password:</b></label><br>
+        <input type="Password" class="form-control" id="pass" name="pass" placeholder="Introduceti parola" pattern=".{8,}"><br>
+        
+        
+        
+        <input type="checkbox" id="beMedic" name="beMedic" value="1" onclick="Medic();selected()">
+        <label for="scrisoare"> Medic</label><br>
+        
+        <input type="checkbox" id="beSecretary" name="beSecretary" value="1" onclick="selected()">
+        <label for="scrisoare"> Secretar/a</label><br>
+
+        <label for="pass" id="labelcabinet" style="visibility: hidden;"><b>Cabinet</b></label><br>
+        <input type="text" class="form-control" id="inputcabinet" name="cabinet" placeholder="Introduceti cabinetul doar daca este medic" style="visibility: hidden;"><br>
+        
+        
+        
+        
+        
+        <div class="col-12">
+        <hr class="invis-100">
+    </div>
+    <% if (locals.admin_reg) { 
+        admin_reg.forEach(function(error_msg){ %>
+        <div class="alert alert-success" role="alert"><%= error_msg %></div>
+      <% });
+      } %>
+    <div class="centertext">
+        <button class="btn btn-primary" type="submit" id="submitButton" onclick="changeURLsequence()">Submit</button>
+    </div>
+    </form>
+    </div>
+</section>
+<div class="col-12">
+        <hr class="invis-100">
+    </div>
+    <div class="col-12">
+        <hr class="dark-100">
+    </div>
+    <div class="col-12">
+        <hr class="invis-100">
+    </div>
+
+<!-- Tarife-->
+<section>
+<div class="container" id="Tarife">
+<h2 class="centertext">Tarife</h2>
+    <form class="container filebg border border-dark" action="/tarif" method="post">
+
+
+        <label id="labelconsult" for="consult">Tarif Consult:</label><br>
+        <input type="text" class="form-control" id="consult" name="tar_consult" pattern="[0-9]+"><br>
+
+        <label id="labelinterventie" for="interventie">Tarif Interventie:</label><br>
+        <input type="text" class="form-control" id="interventie" name="tar_interventie" pattern="[0-9]+"><br>
+
+        <div class="col-12">
+            <hr class="invis-100">
+        </div>
+        <div class="centertext">
+        <button class="btn btn-primary" type="submit" id="submitButton" onclick="">Modifica</button>
+        </div>
+    </form>
+</div>
+</section>
+<div class="col-12">
+        <hr class="invis-100">
+    </div>
+    <div class="col-12">
+        <hr class="dark-100">
+    </div>
+    <div class="col-12">
+        <hr class="invis-100">
+    </div>
+
+
+
+
+
+<!-- Incasari-->
+<section>
+<div class="container" id="incasari">
+    <h2 class="centertext">Incasari</h2><br>
+
+</div>
+<div class="container">
+<h3 class="centertext">Search Cabinet</h3>
+
+<form class="example2" action="/admcabsrc" method="post" style="margin:auto;max-width:300px">
+  <input type="text" class="form-control" placeholder="Search.." name="search2">
+  <button type="submit"class="btn btn-primary"><i class="fa fa-search"></i></button>
+</form>
+
+<h3 class="centertext">Search Medic</h3>
+
+<form class="example2" action="/admmedsrc" method="post" style="margin:auto;max-width:300px">
+  <input type="text" class="form-control" placeholder="Search.." name="search2">
+  <button type="submit"class="btn btn-primary"><i class="fa fa-search"></i></button>
+</form>
+
+</div>
+
+
+
+</section>
+<div class="col-12">
+        <hr class="invis-100">
+    </div>
+    <div class="col-12">
+        <hr class="dark-100">
+    </div>
+    <div class="col-12">
+        <hr class="invis-100">
+    </div>
+
+
+
+<!-- Connect -->
+<section>
+<div class="col-md-50 col-sm-50 contacts">
+    <div class="google-map">
+        <span class="line-bar"></span>
+        <iframe src="https://maps.google.com/maps?q=West%20University%20of%20Timisoara&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+</div>
+</section>
+<!-- Footer -->
+<section>
+    <footer id="footer">
+      <div class="container-fluid padding">
+      <div class="row text-center">
+          <div class="col-md-4">
+              <img src="img/test1.png">
+              <hr class="light">
+              <p>555-555-5555</p>
+              <p>alphaclinic@gmail.com</p>
+              <p>Bulevardul Vasile Parvan</p>
+              <p>Timisoara, Timis</p>
+      
+          </div>
+          <div class="col-md-4">
+              <hr class="light">
+              <h5>Program<h5>
+              <hr class="light">
+              <p>Luni-Vineri: 8am - 6pm</p>
+              <p>Sambata: 8am - 3pm</p>
+              <p>Duminica: Inchis</p>
+          </div>
+          <div class="col-md-4">
+              <hr class="light">
+              <h5>Informatii<h5>
+              <hr class="light">
+              <p>Va asteptam si in anul acesta cu servicii de calitate</p>
+          </div>
+          <div class="col-12">
+              <hr class="light-100">
+              <h5>&copy; AlphaClinic.com</h5>
+          </div>
+      </div>
+      </div>
+      </footer>
+  </section>
+</body>
+</html>

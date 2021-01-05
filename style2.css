@@ -1,0 +1,274 @@
+body {font-family: Arial, Helvetica, sans-serif;
+background: radial-gradient(circle, rgba(0,150,255,1) 49%, rgba(0,50,255,1) 100%);
+color:black}
+
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.flexS{
+  display: flex;
+}
+.frumos{
+  display: inherit !important;
+  width: auto !important;
+}
+/* BG colors */
+.filebg{
+  background: white;
+}
+.bg { 
+  /* The image used */
+  background-image: url("img/clinical-trials-and-methods.jpg");
+
+  /* Full height */
+  height: 50%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.centertext{
+  text-align: center;
+}
+
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+
+.bg2 { 
+  background-image: url("img/clinical-trials-and-methods.jpg");
+  height: 50%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.long {
+  width: 1920px;
+  height: 150px;
+}
+#fixed {
+  background-image: url('img/clinical.jpg');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+.navbar{
+  padding: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  box-shadow: 0 .5rem .5rem rgba(0,0,0, .1);
+}
+.navbar-nav li{
+  padding-right: 20px;
+}
+.nav-link {
+  font-size: 1.1em !important;
+}
+
+.wrapper{
+  text-align: center;
+}
+
+.button{
+  position: absolute;
+}
+
+.imgfixedborder{
+  width: 100%;
+  height: 100px;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+/*--- Conect styler --*/
+
+.contacts {
+  background: #5c5c5c;
+}
+.social a {
+  font-size: 4.5em;
+  padding: 3rem;
+}
+
+.fa-facebook{
+  color: #3b5998;
+}
+.fa-twitter{
+  color: #00aced;
+}
+.fa-google-plus-g{
+  color: #dd4b39;
+}
+.fa-instagram{
+  color: #C13584;
+}
+.fa-youtube{
+  color: #bb0000;
+}
+
+.fa-facebook:hover,
+.fa-twitter:hover,
+.fa-google-plus-g:hover,
+.fa-instagram:hover,
+.fa-youtube:hover{
+  color: #d5d5d5;
+}
+
+.invisible {
+  display: none;
+  visibility: hidden;
+     }
+
+/*--- Footer styler --*/
+footer {
+  background-color: #3b3b3b;
+  color: #d5d5d5;
+  padding-top: 2rem;
+}
+hr.light{
+  border-top: 1px solid #d5d5d5;
+  width: 75%;
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+
+footer a{
+  color:#d5d5d5;
+}
+hr.light-100{
+  border-top: 1px solid #d5d5d5;
+  width: 100%;
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+hr.dark-100{
+  border-top: 1px solid #242424;
+  width: 100%;
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+hr.invis-100{
+  border-top: 3px solid #24242400;
+  width: 100%;
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+
+.bg-1 {
+  background-image: url("img/background.png"); /* Green */
+  color: #000000;
+}
+
+/* Maps */
+.google-map {
+  border-radius: 100%;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.google-map iframe {
+  border: 0;
+  width: 300px;
+  height: 300px;
+}
+
+/* Search Bar */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style the search field */
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media only screen and (max-width:700px){
+  .small{
+    display:none;
+    
+  }
+}
+
+@media only screen and (min-width:701px){
+  .large{
+    display: none;
+  }
+}

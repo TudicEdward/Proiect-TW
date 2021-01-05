@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <title>Secretara</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+      <link href="style2.css" rel="stylesheet">
+      <script type="text/javascript" src="Functii.js"></script>
+</head>
+<div id="navigation sticky">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+    <a class="navbar-brand">
+                <img src="img/test1.png">
+    </a>
+        <a href="/cont" class="btn btn-danger">Back</a>    
+      </div>
+    </div>
+    </nav>
+    <div class="bg">
+      <img src="img/background.png " style="visibility: hidden;">
+    </div>
+    <div class="col-12">
+            <hr class="invis-100">
+        </div>
+    </div>
+<body>
+    <div class="container">
+    <table class="table border border-dark filebg" style="background-color: rgb(86, 175, 219);">
+
+        <thead class="thead-dark ">
+          <tr>
+            <th scope="col">Rezultat Cautare
+                <div>
+                <% if (locals.test_4) { 
+                    test_4.forEach(function(error_msg) { %>
+                    <label> <%= error_msg %>  </label>
+                    <% });
+                    } %>
+                </div>
+                <br>
+                <% if (locals.test_5) {
+                    test_5.forEach(function(total) { %>
+                        <label> <%= total %> </label>
+                    <% });
+                } %>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+            <form class="example" method="post" style="margin:auto;max-width:300px">
+            <% if (locals.test_1 || locals.test_2 || locals.test_3) { 
+                test_1.forEach(function(error_msg, index) { 
+                    const num2 = test_2[index];
+                    const num3 = test_3[index]; %>
+                    
+            <tr>
+                <th scope="row">
+                    <label>Nume Medic:</label><input class="form-control frumos" type="text" name="nume" value="<%= num2 %>" readonly="true">
+                    <label>Data:</label><input class="form-control frumos" type="text" name="data" value="<%= num3 %>" readonly="true">
+                    <label>Total:</label><input class="form-control frumos" type="text" name="total" value="<%= error_msg %>" readonly="true">
+                
+          <% });
+            } %>
+                <% if (locals.test_5 != "" && locals.test_6) { 
+                    test_6.forEach(function(hey){ %> 
+                        
+                    
+            <br>
+            <br>
+            <label>An</label><input class="form-control frumos" type="text" name="year" placeholder="e.g. 2020">
+            <label>Luna</label><input class="form-control frumos" type="text" name="month" placeholder="e.g. 01">
+            <label>Zi</label><input class="form-control frumos" type="date" name="day">
+            <input class="form-control frumos" type="text" name="savename" value="<%= hey %>" readonly="true" style="visibility: hidden;">
+            <br>
+            <br>
+            <button type="submit" formaction="/yearsearchcab">Cautare an</button>
+            <button type="submit" formaction="/monthsearchcab">Cautare luna</button>
+            <button type="submit" formaction="/daysearchcab">Cautare zi</button>
+            
+            </th>
+        </tr>
+        <% });
+     } %>       
+        </form>
+        </tbody>    
+        </table>
+    </div>
+</body>
+</html>
